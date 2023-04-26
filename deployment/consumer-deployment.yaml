@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consumer-app
+  template:
+    metadata:
+      labels:
+        app: consumer-app
+    spec:
+      containers:
+        - name: consumer-container
+          image: dinonazlic/kafka-consumer:latest
+          envFrom:
+            - configMapRef:
+                name: consumer-configmap
