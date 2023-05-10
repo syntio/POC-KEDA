@@ -4,6 +4,6 @@ metadata:
   name: consumer-configmap
 data:
   PROCESSING_TIME: "500"
-  KAFKA_ADDRESS: "20.31.76.141:9093"
+  KAFKA_ADDRESS: "k-cluster-kafka-external-0.kafka-cluster.svc.cluster.local:9093"
   KAFKA_TOPIC: "keda-topic"
   GROUP_ID: "keda-group"

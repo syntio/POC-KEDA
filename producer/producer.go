@@ -10,9 +10,9 @@ import (
 
 func main() {
 	// Load env variables
-	processingTime := 1200              // strconv.Atoi(os.Getenv("PROCESSING_TIME"))
+	processingTime := 1500              // strconv.Atoi(os.Getenv("PROCESSING_TIME"))
 	kafkaAddress := "20.31.76.141:9093" // os.Getenv("KAFKA_ADDRESS")
-	topic := "keda-topic-p3"            // os.Getenv("KAFKA_TOPIC")
+	topic := "keda-topic"               // os.Getenv("KAFKA_TOPIC")
 
 	// Configure the producer
 	config := sarama.NewConfig()
