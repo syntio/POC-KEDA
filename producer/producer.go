@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
+	"strconv"
 	"time"
 
 	"github.com/Shopify/sarama"
@@ -10,9 +12,13 @@ import (
 
 func main() {
 	// Load env variables
-	processingTime := 1500              // strconv.Atoi(os.Getenv("PROCESSING_TIME"))
-	kafkaAddress := "20.31.76.141:9093" // os.Getenv("KAFKA_ADDRESS")
-	topic := "keda-topic"               // os.Getenv("KAFKA_TOPIC")
+	processingTime, err := strconv.Atoi(os.Getenv("PROCESSING_TIME"))
+	kafkaAddress := os.Getenv("KAFKA_ADDRESS")
+	topic := os.Getenv("KAFKA_TOPIC")
+
+	if err != nil {
+		log.Fatalln("Failed to load processing time from env var:", err)
+	}
 
 	// Configure the producer
 	config := sarama.NewConfig()
